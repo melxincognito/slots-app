@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var cherryCard = "cherry"
-    @State private var appleCard = "apple"
-    @State private var starCard = "Star"
+    @State private var slotOne = "cherry"
+    @State private var slotTwo = "apple"
+    @State private var slotThree = "star"
     @State private var points = 0
+  
     
     
     var body: some View {
+        
         
         ZStack {
             
@@ -29,6 +31,35 @@ struct ContentView: View {
                 
                 Button(action: {
                     
+                    let slotOneRand = Int.random(in: 1...4)
+                    let slotTwoRand = Int.random(in: 1...4)
+                    let slotThreeRand = Int.random(in: 1...4)
+                    
+                    if slotOneRand == 1 {
+                        slotOne = "cherry"
+                    } else if slotOneRand == 2 {
+                        slotOne = "apple"
+                    } else if slotOneRand == 3 {
+                        slotOne = "star"
+                    }
+                    if slotTwoRand == 1 {
+                        slotTwo = "cherry"
+                    } else if slotTwoRand == 2 {
+                        slotTwo = "apple"
+                    } else if slotTwoRand == 3 {
+                        slotTwo = "star"
+                    }
+                    if slotThreeRand == 1 {
+                        slotThree = "cherry"
+                    } else if slotThreeRand == 2 {
+                        slotThree = "apple"
+                    } else if slotThreeRand == 3 {
+                        slotThree = "star"
+                    }
+                    
+                    
+                    
+                    
                 }, label: {
                     Text("I'm feeling lucky")
                 })
@@ -37,13 +68,13 @@ struct ContentView: View {
                 
                     HStack {
                     
-                        Image("cherry").resizable()
+                        Image(slotOne).resizable()
                         
                             
-                        Image("apple").resizable()
+                        Image(slotTwo).resizable()
                         
                         
-                        Image("star").resizable()
+                        Image(slotThree).resizable()
                         
                         
                  
